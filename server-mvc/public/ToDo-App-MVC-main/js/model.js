@@ -5,6 +5,13 @@ class Model {
 
     // id todo
     this.countId = 0;
+    this.getData = JSON.parse(window.localStorage.getItem("Todo"));
+    if (this.database.length === 0 && this.getData !== null) {
+      this.getData.forEach((item) => {
+        item.id > this.countId ? (this.countId = item.id) : (item.id = item.id);
+        this.database.push(item);
+      });
+    }
   }
 
   // render Todo to view
@@ -17,22 +24,21 @@ class Model {
 
   addTodo(todo) {
     this.database.push({
-      id: this.countId,
+      id: ++this.countId,
       text: todo,
       completed: false,
       edit: false,
     });
-    this.countId++;
     this.render(this.database);
+    localStorage.setItem("Todo", JSON.stringify(this.database));
   }
 
   // toggle Todo to database
 
   toggleTodo(id) {
-    this.database = this.database.map((todo) =>
-      todo.id === id ? { id: todo.id, text: todo.text, completed: !todo.completed } : todo
-    );
+    this.database = this.database.map((todo) => (todo.id === id ? { id: todo.id, text: todo.text, completed: !todo.completed } : todo));
     this.render(this.database);
+    localStorage.setItem("Todo", JSON.stringify(this.database));
   }
 
   // edit todo to database
@@ -44,6 +50,7 @@ class Model {
       }
     }
     this.render(this.database);
+    localStorage.setItem("Todo", JSON.stringify(this.database));
   }
 
   // delete todo to database
@@ -53,6 +60,7 @@ class Model {
       return todo.id !== id;
     });
     this.render(this.database);
+    localStorage.setItem("Todo", JSON.stringify(this.database));
   }
 
   // search todo to database
@@ -62,6 +70,21 @@ class Model {
     });
     this.render(searchTodo);
   }
+
+  // uploadTodo() {
+  //   this.option = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(this.database),
+  //   };
+  // }
+
+  // downloadTodo = async () => {
+  //   const data = await res.json();
+  //   this.render(data);
+  // };
 
   // filter todo  to database
   filterTodo(statusTodo) {
@@ -77,6 +100,7 @@ class Model {
         return filter.completed !== true;
       });
       this.render(filterDataBase);
+      localStorage.getItem("Todo", JSON.stringify(this.database));
     }
   }
 }

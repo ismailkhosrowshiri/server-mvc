@@ -16,10 +16,15 @@ class Controller {
     this.model.renderTodo(this.handelRenderTodo.bind(this));
   }
 
+
+  // upload todo
+
   handelUploadTodo() {
     this.model.uploadTodo();
   }
 
+  // download todo
+  
   handelDownloadTodo() {
     this.model.downloadTodo();
   }
