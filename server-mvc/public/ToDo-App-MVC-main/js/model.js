@@ -64,6 +64,7 @@ class Model {
   }
 
   // search todo to database
+
   searchTodo(term) {
     const searchTodo = this.database.filter((todo) => {
       return todo.text.toLowerCase().includes(term.toLowerCase());
@@ -71,20 +72,37 @@ class Model {
     this.render(searchTodo);
   }
 
-  // uploadTodo() {
-  //   this.option = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(this.database),
-  //   };
-  // }
+  //upload todo to server
 
-  // downloadTodo = async () => {
-  //   const data = await res.json();
-  //   this.render(data);
-  // };
+  uploadTodo() {
+    fetch("/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(this.database),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  //download todo from server
+
+  async downloadTodo() {
+    const url = "/download";
+    const res = await fetch(url);
+    console.log(res);
+    const data = await res.json();
+    console.log(data);
+    this.database = data;
+    this.render(this.database);
+    localStorage.setItem("todo", JSON.stringify(this.database));
+  }
 
   // filter todo  to database
   filterTodo(statusTodo) {
