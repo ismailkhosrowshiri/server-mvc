@@ -3,16 +3,90 @@
   padding: 0;
   margin: 0;
 }
+
 html,
 body {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 body {
   font-family: "Ubuntu", sans-serif;
   background: url("../img/picography-laptop-notepad-pen-desk-small-1.jpg") no-repeat center center/cover;
 }
+
+/* header style  */
+
+.header-container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  background-color: rgba(39, 39, 43, 0.575);
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 0 30px;
+}
+
+.loading-container {
+  padding: 0 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.download,
+.upload {
+  padding: 5px 20px;
+  font-family: "Ephesis", cursive;
+  font-size: 16px;
+  font-weight: bold;
+  color: #eee;
+  background-color: rgba(51, 51, 51, 0.5);
+  border: none;
+  outline: none !important;
+  border-color: rgb(66, 151, 241);
+  box-shadow: 0 0 10px rgb(66, 151, 241);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-container {
+  padding: 0 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.sign-in,
+.sign-up,
+.user-label {
+  padding: 5px 20px;
+  font-family: "Ephesis", cursive;
+  font-size: 16px;
+  font-weight: bold;
+  color: #eee;
+  background-color: rgba(51, 51, 51, 0.5);
+  border: none;
+  outline: none !important;
+  border-color: rgb(66, 151, 241);
+  box-shadow: 0 0 10px rgb(66, 151, 241);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.link-class,
+.link-class:visited,
+.link-class:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.user-label {
+  cursor: text;
+}
+
+/* main header  */
+
 .header-txt {
   font-family: "Pinyon Script", cursive;
   font-size: 80px;
@@ -20,53 +94,38 @@ body {
   text-align: center;
   margin: 5px auto;
 }
-.download {
-  max-width: 80px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 100%;
-  font-family: "Ephesis", cursive;
-  font-size: 16px;
-  font-weight: bold;
-  color: #eee;
-  background-color: rgba(51, 51, 51, 0.5);
-  border: none;
-  outline: none !important;
-  border-color: rgb(66, 151, 241);
-  box-shadow: 0 0 10px rgb(66, 151, 241);
-  border-radius: 5px;
-  cursor: pointer;
-}
-.upload {
-  max-width: 80px;
-  position: absolute;
-  top: 20px;
-  left: 110px;
-  width: 100%;
-  font-family: "Ephesis", cursive;
-  font-size: 16px;
-  font-weight: bold;
-  color: #eee;
-  background-color: rgba(51, 51, 51, 0.5);
-  border: none;
-  outline: none !important;
-  border-color: rgb(66, 151, 241);
-  box-shadow: 0 0 10px rgb(66, 151, 241);
-  border-radius: 5px;
-  cursor: pointer;
-}
-.continer {
+
+/* container  */
+
+.container {
   width: 500px;
   min-height: 450px;
   margin: 2px auto;
   background-color: rgba(39, 39, 43, 0.575);
+  border-radius: 20px;
 }
+
+.sign-in-container {
+  align-items: flex-start;
+  padding: 20px;
+}
+
 .add,
 .search {
   display: flex;
   flex-direction: column;
 }
+
+.pass {
+  outline: none !important;
+  border-color: rgb(66, 151, 241);
+  box-shadow: 0 0 10px rgb(66 151 241);
+}
+
+.login {
+  margin-top: 50px !important;
+}
+
 .lbl-txt {
   text-align: center;
   color: rgb(223, 223, 223);
@@ -74,6 +133,7 @@ body {
   font-size: 36px;
   font-weight: 700;
 }
+
 .form-control {
   background-color: rgba(0, 0, 0, 0.2);
   border: none;
@@ -90,12 +150,14 @@ body {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   border-radius: 5px;
 }
+
 input[type="text"],
 input[type="text"]:focus {
   outline: none !important;
   border-color: rgb(66, 151, 241);
   box-shadow: 0 0 10px rgb(66, 151, 241);
 }
+
 .btn-add {
   max-width: 450px;
   width: 100%;
@@ -121,6 +183,7 @@ input[type="text"]:focus {
   margin-right: auto;
   margin-top: 15px;
 }
+
 .list-item {
   max-width: 450px;
   width: 100%;
@@ -138,6 +201,7 @@ input[type="text"]:focus {
   box-shadow: 0 0 10px rgb(66, 151, 241);
   margin-bottom: 2px;
 }
+
 .complete-txt {
   width: 1rem;
   height: 1rem;
@@ -145,10 +209,12 @@ input[type="text"]:focus {
   margin: 2px;
   cursor: pointer;
 }
+
 .complete-txt:checked ~ .main-text {
   color: #ccc;
   text-decoration: line-through #eee;
 }
+
 .main-text {
   max-width: calc(460px - 6rem);
   width: 100%;
@@ -156,6 +222,7 @@ input[type="text"]:focus {
   font-size: 18px;
   font-weight: 400;
 }
+
 .edit-input {
   max-width: calc(460px - 6rem);
   width: 100%;
@@ -163,6 +230,7 @@ input[type="text"]:focus {
   font-size: 18px;
   font-weight: 400;
 }
+
 .edit-list {
   width: 1rem;
   height: 1rem;
@@ -171,6 +239,7 @@ input[type="text"]:focus {
   margin: 2px;
   cursor: pointer;
 }
+
 .edit-input-btn {
   width: 1rem;
   height: 1rem;
@@ -179,6 +248,7 @@ input[type="text"]:focus {
   margin: 2px;
   cursor: pointer;
 }
+
 .delete-list {
   width: 1rem;
   height: 1rem;
@@ -187,6 +257,7 @@ input[type="text"]:focus {
   margin: 2px;
   cursor: pointer;
 }
+
 .footer {
   display: flex;
   margin: 10px auto;
@@ -196,6 +267,7 @@ input[type="text"]:focus {
   justify-content: center;
   align-content: center;
 }
+
 .footer-btn {
   display: flex;
   font-family: "Ephesis", cursive;
@@ -208,9 +280,11 @@ input[type="text"]:focus {
   border: none;
   cursor: pointer;
 }
+
 .filtered {
   display: none !important;
 }
+
 .clicked-class {
   border-color: rgb(219, 88, 0);
 
@@ -218,6 +292,7 @@ input[type="text"]:focus {
   background-color: rgb(66, 151, 241);
   color: #eee;
 }
+
 .checkbox-style {
   color: #ccc;
   text-decoration: line-through #eee;

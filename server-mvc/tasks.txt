@@ -1,1 +1,1 @@
-[{"id":5,"text":"h","completed":false,"edit":false},{"id":6,"text":"fgh","completed":false,"edit":false},{"id":7,"text":"asfda","completed":false,"edit":false}]
+[{"id":5,"text":"h","completed":false,"edit":false},{"id":6,"text":"fgh","completed":false,"edit":false},{"id":7,"text":"asfda","completed":false,"edit":false},{"id":1,"text":"jj","completed":true}]

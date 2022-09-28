@@ -26,6 +26,5 @@ app.get("/download", async (req, res) => {
   // });
 });
 app.listen(9000, () => {
-  console.log("Listening on the 9000");
-  console.log("127.0.0.1:9000");
+  console.log("listening on port 9000" + "\t" + "http://127.0.0.1:9000");
 });
